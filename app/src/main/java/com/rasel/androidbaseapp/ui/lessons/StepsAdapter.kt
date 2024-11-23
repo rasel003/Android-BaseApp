@@ -22,7 +22,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.materialstudies.owl.model.Lesson
+import com.rasel.androidbaseapp.data.models.Lesson
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.databinding.StepItemBinding
 

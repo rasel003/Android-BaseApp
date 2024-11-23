@@ -24,7 +24,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.materialstudies.owl.model.CourseRepo
-import com.materialstudies.owl.model.lessons
+import com.rasel.androidbaseapp.data.models.lessons
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.databinding.FragmentLessonBinding
 

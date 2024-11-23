@@ -20,8 +20,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.materialstudies.owl.model.Lesson
-import com.materialstudies.owl.model.LessonDiff
+import com.rasel.androidbaseapp.data.models.Lesson
+import com.rasel.androidbaseapp.data.models.LessonDiff
 import com.rasel.androidbaseapp.databinding.LessonItemBinding
 
 class LessonAdapter(

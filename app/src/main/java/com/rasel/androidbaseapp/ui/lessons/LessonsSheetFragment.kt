@@ -33,7 +33,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDE
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.materialstudies.owl.model.Course
-import com.materialstudies.owl.model.lessons
+import com.rasel.androidbaseapp.data.models.lessons
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.core.decorator.InsetDivider
 import com.rasel.androidbaseapp.databinding.FragmentLessonsSheetBinding
