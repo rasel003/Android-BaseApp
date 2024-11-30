@@ -7,12 +7,13 @@ import android.view.inputmethod.EditorInfo
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.rasel.androidbaseapp.base.BaseFragment
-import com.rasel.androidbaseapp.data.models.UnsplashPhoto
 import com.rasel.androidbaseapp.databinding.FragmentGalleryBinding
 import com.rasel.androidbaseapp.presentation.viewmodel.BaseViewModel
 import com.rasel.androidbaseapp.ui.settings.SettingsFragment
@@ -21,9 +22,7 @@ import com.rasel.androidbaseapp.util.toJsonString
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -48,14 +47,6 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, BaseViewModel>() {
         adapter = GalleryAdapter {
             val action = GalleryFragmentDirections.actionNavGalleryToGridFragment()
             findNavController().navigate(action)
-        }
-
-
-        lifecycleScope.launchWhenCreated {
-            adapter.loadStateFlow.collect { loadStates ->
-                binding.swipeRefresh.isRefreshing =
-                    loadStates.mediator?.refresh is LoadState.Loading
-            }
         }
 
 
@@ -86,8 +77,9 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, BaseViewModel>() {
             }
         }
 
-        lifecycleScope.launchWhenCreated {
+        viewLifecycleOwner.lifecycleScope.launch {
             adapter.loadStateFlow
+                .flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.CREATED)
                 // Use a state-machine to track LoadStates such that we only transition to
                 // NotLoading from a RemoteMediator load if it was also presented to UI.
                 .asMergedLoadStates()
@@ -149,6 +141,15 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding, BaseViewModel>() {
 
             val action = GalleryFragmentDirections.actionNavGalleryToDialogInsurancePolicy()
             findNavController().navigate(action)
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            adapter.loadStateFlow
+                .flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.CREATED)
+                .collect { loadStates ->
+                    binding.swipeRefresh.isRefreshing =
+                        loadStates.mediator?.refresh is LoadState.Loading
+                }
         }
 
     }
