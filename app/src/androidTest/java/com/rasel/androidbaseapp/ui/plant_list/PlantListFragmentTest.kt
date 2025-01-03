@@ -136,7 +136,7 @@ class PlantListFragmentTest {
         // Click list item #LIST_ITEM_IN_TEST
         Espresso.onView(withId(R.id.plant_list))
             .perform(
-                RecyclerViewActions.actionOnItemAtPosition<PlantAdapter.PlantViewHolder>(
+                RecyclerViewActions.actionOnItemAtPosition<PlantViewHolder>(
                     LIST_ITEM_IN_TEST,
                     ViewActions.click()
                 )

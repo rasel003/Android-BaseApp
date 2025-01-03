@@ -28,11 +28,10 @@ class HomeRepository @Inject constructor(
     fun getPostList(): Flow<ApiResponse<List<PostItem>>> = dataSourceFactory.getRemoteDataSource().getPostList()
 
     suspend fun getPost(): Flow<Pair<String,String>> {
-        val getPostWorkRequest: OneTimeWorkRequest =
-            OneTimeWorkRequest.Builder(GetPostWorker::class.java).build()
+        val getPostWorkRequest: OneTimeWorkRequest = OneTimeWorkRequest.Builder(GetPostWorker::class.java).build()
         workManager.enqueue(getPostWorkRequest)
         return workManager.getWorkInfoByIdLiveData(getPostWorkRequest.id).asFlow().map {
-            if (it.state == WorkInfo.State.SUCCEEDED) {
+            if (it != null && it.state == WorkInfo.State.SUCCEEDED) {
                 val res = it.outputData.getString("responseString") ?: ""
                 Pair("Success",res)
             } else {

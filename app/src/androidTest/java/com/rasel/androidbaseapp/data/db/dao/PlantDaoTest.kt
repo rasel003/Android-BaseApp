@@ -31,7 +31,11 @@ class PlantDaoTest {
 
     @Test
     fun insertProduct_returnsSingleProduct() = runTest {
-        val product = Plant("333", "","dfd", 256, 12, "Test Product")
+        val product = Plant(
+            "333", "", "dfd", 256, 12, "Test Product",
+            commentsCount = "3",
+            bookmarked = false
+        )
         plantDao.insertAll(listOf(product))
         val result = plantDao.getPlantList()
         Assert.assertEquals(1, result.size)

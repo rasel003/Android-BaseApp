@@ -163,6 +163,7 @@ class EmailSwipeActionDrawable(context: Context) : Drawable() {
         circlePaint.alpha = alpha
     }
 
+    @Deprecated("Deprecated in Java")
     override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
 
     override fun setColorFilter(filter: ColorFilter?) {

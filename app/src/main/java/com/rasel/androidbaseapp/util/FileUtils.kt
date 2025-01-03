@@ -6,6 +6,7 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.PorterDuff
@@ -271,19 +272,35 @@ object FileUtils {
         val downloadID = downloadManager.enqueue(request)
 
         // Register BroadcastReceiver to listen for download completion
+        registerDownloadReceiver(context, downloadID, extension, onDownloadComplete)
+    }
+
+    private fun registerDownloadReceiver(context: Context, downloadID: Long, extension: String, onDownloadComplete: (Long, String) -> Unit) {
         val onComplete = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+                if (context == null || intent == null) return // Handle potential null context or intent
+
+                val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
                 if (id == downloadID) {
                     // Download completed
                     onDownloadComplete(downloadID, extension)
-                    context?.unregisterReceiver(this) // unregister BroadcastReceiver
+                    try {
+                        context.unregisterReceiver(this) // unregister BroadcastReceiver
+                    } catch (e: IllegalArgumentException) {
+                        // Receiver was already unregistered, ignore
+                    }
                 }
             }
         }
-        context.registerReceiver(onComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-    }
 
+        val intentFilter = IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+        val receiverFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Context.RECEIVER_NOT_EXPORTED
+        } else {
+            0
+        }
+        context.registerReceiver(onComplete, intentFilter, receiverFlags)
+    }
     @JvmStatic
     fun comPressImage(imagePath: String?): File? {
         var outputFile: File? = null
@@ -357,7 +374,10 @@ object FileUtils {
         val width = (sentBitmap.width * scale).roundToInt()
         val height = (sentBitmap.height * scale).roundToInt()
         sentBitmap = Bitmap.createScaledBitmap(sentBitmap, width, height, true)
-        val bitmap = sentBitmap.copy(sentBitmap.config, true)
+
+        if(sentBitmap.config == null) return null
+
+        val bitmap = sentBitmap.copy(sentBitmap.config!!, true)
         if (radius < 1) {
             return null
         }
