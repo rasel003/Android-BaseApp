@@ -34,7 +34,7 @@ class MyApiTest {
         val response = myApi.getPostList()
         mockWebServer.takeRequest()
 
-        Assert.assertEquals(true, response.isEmpty() ?: false)
+        Assert.assertEquals(true, response.body()?.isEmpty() ?: false)
     }
 
     @Test
@@ -48,8 +48,8 @@ class MyApiTest {
         val response = myApi.getPostList()
         mockWebServer.takeRequest()
 
-        Assert.assertEquals(false, response.isEmpty())
-        Assert.assertEquals(4, response.size)
+        Assert.assertEquals(false, response.body()?.isEmpty())
+        Assert.assertEquals(4, response.body()?.size ?: 0)
     }
 
     /*@Test
