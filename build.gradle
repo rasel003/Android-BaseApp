@@ -19,7 +19,7 @@ buildscript {
         espressoVersion = '3.6.1'
         fragmentVersion = '1.8.5'
         glideVersion = '4.16.0'
-        gradleVersion = '8.7.3'
+        gradleVersion = '8.8.0'
         gsonVersion = '2.11.0'
         hiltVersion = '2.54'
         hiltViewModelVersion = '1.2.0'

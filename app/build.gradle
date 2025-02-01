@@ -167,7 +167,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0@aar'
 
     // Import the BoM for the Firebase platform
-    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation platform('com.google.firebase:firebase-bom:33.8.0')
 
     // Add the dependencies for the Crashlytics and Analytics libraries
     // When using the BoM, you don't specify versions in Firebase library dependencies
