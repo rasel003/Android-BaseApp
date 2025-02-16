@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <!--  <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>-->
+        <item name="android:textAppearance">@style/TextAppearance.App.Body2</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <!--  <item name="chipIconTint">@color/brown</item>-->
+        <!--        <item name="chipBackgroundColor">?android:colorBackground</item>-->
+        <item name="chipEndPadding">@dimen/chip_padding</item>
+        <item name="chipStartPadding">@dimen/chip_padding</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/chip_stroke_tint</item>
+        <!-- <item name="checkedIconVisible">true</item>-->
+        <item name="shapeAppearanceOverlay">@null</item>
+        <!--  <item name="chipIcon">@drawable/ic_calendar</item>-->
+        <!--  <item name="iconStartPadding">8dp</item>-->
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <!--        <item name="android:textColor">@color/text_color_chip</item>-->
+        <item name="textAllCaps">true</item>
+        <!-- <item name="chipIconSize">16dp</item>
+         <item name="closeIconTint">?android:attr/textColorPrimary</item>-->
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>
+        <item name="android:paddingTop">100dp</item>
+        <item name="checkedIconEnabled">true</item>
+        <item name="checkedIconVisible">true</item>
+        <item name="checkedIcon">@drawable/ic_baseline_check_circle_24</item>
+        <item name="checkedIconTint">?colorPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip" parent="">
+        <item name="colorOnSurface">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Widget.App.Chip.Green" parent="Widget.App.Chip">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Green</item>
+    </style>
+
+    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
+    </style>
+
+    <style name="Widget.App.Chip.Purple" parent="Widget.App.Chip">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Purple</item>
+    </style>
+
+    <style name="Widget.App.Chip.RED" parent="Widget.App.Chip">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.RED</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip.Green" parent="ThemeOverlay.App.Chip">
+        <item name="colorPrimary">@color/green_900</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip.Yellow" parent="ThemeOverlay.App.Chip">
+        <item name="colorPrimary">@color/yellow_700</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip.Purple" parent="ThemeOverlay.App.Chip">
+        <item name="colorPrimary">@color/purple_300</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Chip.RED" parent="ThemeOverlay.App.Chip">
+        <item name="colorPrimary">@color/red</item>
+    </style>
+
+    <style name="Widget.App.Chip.Entry" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="closeIconSize">0dp</item>
+        <item name="closeIconEnabled">false</item>
+        <item name="chipIcon">@drawable/avatar_none</item>
+        <item name="chipIconSize">@dimen/chip_icon_diameter</item>
+        <item name="chipStartPadding">0dp</item>
+        <item name="android:checkable">false</item>
+    </style>
+
+    <style name="Widget.App.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/background_color_chip_state_list</item>
+        <item name="android:textColor">@color/text_color_chip_state_list</item>
+        <item name="chipStrokeColor">?attr/colorOnBackground</item>
+        <item name="chipStrokeWidth">1dp</item>
+    </style>
+
+    <!-- Filters -->
+    <!-- Easier to extend Chip.Choice because it includes some desired color effects. -->
+    <style name="Widget.IOSched.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textAppearance">@style/TextAppearance.IOSched.FilterChip.Selectable
+        </item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipIcon">@drawable/asld_chip_icon</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="textStartPadding">0dp</item>
+    </style>
+
+    <style name="Widget.IOSched.FilterChip.Selectable">
+        <item name="chipStrokeWidth">1dp</item>
+    </style>
+
+    <!-- Active filters show a close shortcut and no checkmark. -->
+    <style name="Widget.IOSched.FilterChip.Closeable">
+        <item name="android:clickable">false</item>
+        <item name="chipIcon">@drawable/chip_dot</item>
+        <item name="closeIcon">@drawable/ic_filter_clear</item>
+        <item name="closeIconVisible">true</item>
+        <item name="textEndPadding">2dp</item>
+    </style>
+
+</resources>

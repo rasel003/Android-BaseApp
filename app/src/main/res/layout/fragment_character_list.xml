@@ -15,6 +15,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toggle_button"
+        app:checkedButton="@id/btnLightMode"
+        app:layout_constraintStart_toEndOf="@id/btnScrollTo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/btnLightMode"
+            style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_map_daytime" />
+
+        <Button
+            android:id="@+id/btnDarkMode"
+            style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_moon" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
     <ProgressBar
         android:id="@+id/progressBarCharacters"
         android:layout_width="wrap_content"
@@ -24,7 +51,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <!-- <com.facebook.shimmer.ShimmerFrameLayout
          android:id="@+id/shimmerFrameLayout"

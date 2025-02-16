@@ -47,45 +47,7 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <!--        <item name="android:textColor">?textColorDefault</item>-->
-        <!--        <item name="backgroundTint">?attr/colorPrimaryVariant</item>-->
-        <!--        <item name="textAllCaps">true</item>-->
-        <!-- <item name="android:stateListAnimator" tools:ignore="NewApi">
-             @animator/shr_next_button_state_list_anim
-         </item>-->
-    </style>
 
-    <style name="Widget.App.Button.Submit" parent="Widget.MaterialComponents.Button">
-        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.PaperflyGo.Button.Submit</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:paddingTop">18dp</item>
-        <item name="android:paddingBottom">18dp</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:enabled">false</item>
-        <item name="iconGravity">textEnd</item>
-        <item name="icon">@drawable/ic_forward_icon</item>
-        <item name="android:backgroundTint">@color/submit_button_background</item>
-        <item name="iconTint">@color/white</item>
-    </style>
-
-    <style name="Widget.App.Button.OutLineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">@color/color_button_outline</item>
-        <item name="strokeColor">@color/color_button_outline</item>
-        <item name="strokeWidth">1dp</item>
-        <!--<item name="android:stateListAnimator" tools:ignore="NewApi">
-            @animator/shr_next_button_state_list_anim
-        </item>-->
-    </style>
-
-    <style name="Widget.App.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
 
     <style name="Widget.App.Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:theme">@style/Theme.App.DayNight</item>
@@ -159,151 +121,7 @@
         <item name="android:paddingEnd">0dp</item>
     </style>
 
-    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Choice">
-        <!--  <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>-->
-        <item name="android:textAppearance">@style/TextAppearance.App.Body2</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
-        <!--  <item name="chipIconTint">@color/brown</item>-->
-        <!--        <item name="chipBackgroundColor">?android:colorBackground</item>-->
-        <item name="chipEndPadding">@dimen/chip_padding</item>
-        <item name="chipStartPadding">@dimen/chip_padding</item>
-        <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/chip_stroke_tint</item>
-        <!-- <item name="checkedIconVisible">true</item>-->
-        <item name="shapeAppearanceOverlay">@null</item>
-        <!--  <item name="chipIcon">@drawable/ic_calendar</item>-->
-        <!--  <item name="iconStartPadding">8dp</item>-->
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <!--        <item name="android:textColor">@color/text_color_chip</item>-->
-        <item name="textAllCaps">true</item>
-        <!-- <item name="chipIconSize">16dp</item>
-         <item name="closeIconTint">?android:attr/textColorPrimary</item>-->
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip</item>
-        <item name="android:paddingTop">100dp</item>
-        <item name="checkedIconEnabled">true</item>
-        <item name="checkedIconVisible">true</item>
-        <item name="checkedIcon">@drawable/ic_baseline_check_circle_24</item>
-        <item name="checkedIconTint">?colorPrimary</item>
-    </style>
 
-    <style name="ThemeOverlay.App.Chip" parent="">
-        <item name="colorOnSurface">?attr/colorOnSurface</item>
-    </style>
-
-    <style name="Widget.App.Chip.Green" parent="Widget.App.Chip">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Green</item>
-    </style>
-
-    <style name="Widget.App.Chip.Yellow" parent="Widget.App.Chip">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Yellow</item>
-    </style>
-
-    <style name="Widget.App.Chip.Purple" parent="Widget.App.Chip">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.Purple</item>
-    </style>
-
-    <style name="Widget.App.Chip.RED" parent="Widget.App.Chip">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Chip.RED</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Chip.Green" parent="ThemeOverlay.App.Chip">
-        <item name="colorPrimary">@color/green_900</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Chip.Yellow" parent="ThemeOverlay.App.Chip">
-        <item name="colorPrimary">@color/yellow_700</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Chip.Purple" parent="ThemeOverlay.App.Chip">
-        <item name="colorPrimary">@color/purple_300</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Chip.RED" parent="ThemeOverlay.App.Chip">
-        <item name="colorPrimary">@color/red</item>
-    </style>
-
-    <style name="Widget.App.Chip.Entry" parent="Widget.MaterialComponents.Chip.Entry">
-        <item name="closeIconSize">0dp</item>
-        <item name="closeIconEnabled">false</item>
-        <item name="chipIcon">@drawable/avatar_none</item>
-        <item name="chipIconSize">@dimen/chip_icon_diameter</item>
-        <item name="chipStartPadding">0dp</item>
-        <item name="android:checkable">false</item>
-    </style>
-
-    <style name="Widget.App.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipBackgroundColor">@color/background_color_chip_state_list</item>
-        <item name="android:textColor">@color/text_color_chip_state_list</item>
-        <item name="chipStrokeColor">?attr/colorOnBackground</item>
-        <item name="chipStrokeWidth">1dp</item>
-    </style>
-
-    <style name="MyDatePicker" parent="Theme.MaterialComponents.Light.Dialog.Alert">
-        <item name="colorAccent">#ff6d06</item>
-        <item name="android:buttonBarPositiveButtonStyle" >@style/DialogBut</item>
-        <item name="android:buttonBarNegativeButtonStyle" >@style/DialogBut</item>
-    </style>
-
-    <style name="DialogBut" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">#ff6d06</item>
-    </style>
-
-    <style name="popupMenuStyle" parent="Widget.MaterialComponents.PopupMenu">
-        <item name="android:popupBackground">@color/app_white_50</item>
-    </style>
-
-    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="colorPrimary">?attr/colorSecondary</item>
-        <!--        <item name="colorSecondary">@color/shrine_pink_100</item>-->
-        <item name="colorSurface">?android:attr/colorBackground</item>
-        <!--        <item name="colorOnSurface">?attr/colorSecondary</item>-->
-        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
-        </item>
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button.Dialog</item>
-        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button.Dialog</item>
-    </style>
-
-    <style name="ThemeOverlay.App.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
-        <!-- <item name="colorPrimary">@color/owl_yellow_500</item>
-         <item name="colorOnPrimary">@color/white</item>
-         <item name="colorOnSurface">@color/black</item>
-         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
-         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>-->
-    </style>
-
-    <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
-    </style>
-
-    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:textColor">?attr/colorSecondary</item>
-    </style>
-
-    <style name="Widget.App.Button.Dialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.TextButton</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Button.TextButton" parent="">
-        <item name="colorPrimary">?attr/colorSecondary</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Button" parent="">
-        <item name="colorPrimary">?attr/colorSecondary</item>
-    </style>
-
-
-    <!--   for fullscreen dialog-->
-    <style name="Theme.App.DayNight.FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog"> <!--theme for popup dialog full screen-->
-        <!--<item name="colorPrimary">@color/navy_500</item>
-        <item name="colorPrimaryDark">@color/navy_800</item>
-        <item name="colorPrimaryVariant">@color/navy_800</item>
-        <item name="colorAccent">@color/reply_orange_500</item>-->
-        <item name="android:windowIsFloating">false</item>
-        <!-- <item name="android:windowBackground">@android:color/white</item>
-         <item name="actionMenuTextColor">@color/reply_orange_500</item>-->
-    </style>
 
     <!--   for fullscreen dialog-->
     <style name="Theme.App.Slide"> <!-- popup dialog full screen animation-->
@@ -312,16 +130,7 @@
     </style>
 
 
-    <!--   for fullscreen dialog-->
-    <style name="ThemeOverlay.App.DayNight.FullScreenDialog" parent=""> <!--theme for popup dialog full screen-->
-        <!--  <item name="colorPrimary">@color/app_maroon_500</item>
-          <item name="colorPrimaryDark">@color/app_maroon_700</item>
-          <item name="colorPrimaryVariant">@color/app_maroon_700</item>
-          <item name="colorAccent">@color/app_orange_500</item>-->
-        <item name="android:windowIsFloating">false</item>
-        <item name="actionMenuTextColor">@color/white</item>
 
-    </style>
 
     <!--   for fullscreen dialog-->
     <style name="Slide"> <!-- popup dialog full screen animation-->
@@ -335,45 +144,7 @@
         <item name="android:backgroundTint">@color/color_on_surface_divider</item>
     </style>
 
-    <!--    implemented using material design system-->
-    <style name="Widget.App.ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
-        <item name="behavior_draggable">false</item>
-        <item name="behavior_hideable">false</item>
-        <item name="behavior_peekHeight">700dp</item>
-        <!--        <item name="backgroundTint">@color/transparent</item>-->
-        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>
-    </style>
 
-    <style name="Widget.App.ModalBottomSheetDialog.FullScreen" parent="Widget.MaterialComponents.BottomSheet.Modal">
-        <!--        <item name="behavior_draggable">false</item>-->
-        <!--        <item name="behavior_hideable">false</item>-->
-        <!--        <item name="behavior_peekHeight">2000dp</item>-->
-        <item name="behavior_expandedOffset">100dp</item>
-        <item name="behavior_fitToContents">false</item>
-        <item name="backgroundTint">@color/red</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>
-    </style>
-
-    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Widget.App.ModalBottomSheetDialog</item>
-        <item name="materialButtonStyle">@style/Widget.App.Button</item>
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
-
-        <item name="android:windowLightStatusBar" >false</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">@bool/use_light_system_bars</item>
-
-        <item name="android:statusBarColor">@color/red</item>
-<!--        <item name="android:navigationBarColor">@color/white</item>-->
-<!--        <item name="android:windowIsFloating">false</item>-->
-    </style>
-
-    <style name="ThemeOverlay.App.BottomSheetDialog.FullScreen" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Widget.App.ModalBottomSheetDialog.FullScreen</item>
-        <item name="materialButtonStyle">@style/Widget.App.Button</item>
-<!--        <item name="android:navigationBarColor">@color/red</item>-->
-        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
 
     <!-- snackbar style-->
     <!--   <style name="Widget.App.Snackbar" parent="Widget.MaterialComponents.Snackbar">
@@ -437,22 +208,7 @@
         <item name="titleTextAppearance">@style/TextAppearance.IOSched.ToolbarTitle</item>
     </style>
 
-    <style name="Widget.IOSched.Tabs" parent="@style/Widget.MaterialComponents.TabLayout">
-        <item name="tabTextAppearance">@style/TextAppearance.IOSched.Tab</item>
-        <item name="tabIndicator">@drawable/tab_indicator</item>
-    </style>
 
-    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
-        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
-        <item name="tabIndicatorFullWidth">false</item>
-    </style>
-
-    <style name="ThemeOverlay.App.TabLayout" parent="">
-        <item name="colorPrimary">@color/pink_900</item>
-        <item name="colorSurface">@color/teal_900</item>
-        <item name="colorOnSurface">@color/white</item>
-    </style>
 
     <!-- textAppearance alone doesn't support line spacing attrs. Multiline body text will use
          style="Widget.IOSched.MultilineBody" instead of the equivalent textAppearance.
@@ -462,30 +218,7 @@
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
-    <!-- Filters -->
-    <!-- Easier to extend Chip.Choice because it includes some desired color effects. -->
-    <style name="Widget.IOSched.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="android:textAppearance">@style/TextAppearance.IOSched.FilterChip.Selectable
-        </item>
-        <item name="chipBackgroundColor">@color/chip_bg</item>
-        <item name="chipIcon">@drawable/asld_chip_icon</item>
-        <item name="chipIconVisible">true</item>
-        <item name="chipStrokeColor">@color/chip_stroke</item>
-        <item name="textStartPadding">0dp</item>
-    </style>
 
-    <style name="Widget.IOSched.FilterChip.Selectable">
-        <item name="chipStrokeWidth">1dp</item>
-    </style>
-
-    <!-- Active filters show a close shortcut and no checkmark. -->
-    <style name="Widget.IOSched.FilterChip.Closeable">
-        <item name="android:clickable">false</item>
-        <item name="chipIcon">@drawable/chip_dot</item>
-        <item name="closeIcon">@drawable/ic_filter_clear</item>
-        <item name="closeIconVisible">true</item>
-        <item name="textEndPadding">2dp</item>
-    </style>
 
     <!-- Schedule -->
     <style name="Widget.IOSched.Tag">
@@ -532,31 +265,7 @@
          <item name="verticalBias">0.67</item>
      </style>-->
 
-    <!-- Account dialogs -->
-    <style name="Widget.IOSched.BorderlessButton.NormalText" parent="@style/Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textAppearance">?android:textAppearance</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
-    </style>
 
-    <style name="Widget.IOSched.AccountDialog.ActionButton" parent="">
-        <item name="android:background">?selectableItemBackground</item>
-        <item name="android:drawablePadding">@dimen/margin_normal</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
-        <item name="android:paddingBottom">@dimen/spacing_normal</item>
-        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
-        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
-        <item name="android:paddingTop">@dimen/spacing_normal</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Widget.IOSched.AccountDialog.ManageAccountButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialComponents.Chip
-        </item>
-    </style>
 
     <!-- Onboarding -->
     <style name="Widget.IOSched.OnboardingText">
@@ -573,9 +282,7 @@
         <item name="android:textAppearance">@style/TextAppearance.IOSched.H1</item>
     </style>
 
-    <style name="Widget.IOSched.Speaker.SocialButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
-        <item name="android:minWidth">0dp</item>
-    </style>
+
 
     <!-- Home -->
     <style name="Widget.IOSched.Feed" />
@@ -590,12 +297,7 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <style name="Widget.IOSched.Feed.Card" parent="Widget.MaterialComponents.CardView">
-        <item name="cardElevation">0dp</item>
-        <item name="strokeColor">?android:attr/colorControlHighlight</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="cardCornerRadius">@dimen/feed_card_corner_radius</item>
-    </style>
+
 
     <style name="Widget.IOSched.Feed.SocialChannelButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="android:layout_width">@dimen/a11y_min_touch_target</item>
@@ -624,21 +326,7 @@
         <item name="switchTextAppearance">?attr/textAppearanceBody2</item>
     </style>
 
-    <style name="Widget.IOSched.Settings.Button">
-        <item name="android:background">?selectableItemBackground</item>
-        <item name="android:gravity">start|center_vertical</item>
-        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
-        <item name="android:paddingBottom">@dimen/spacing_normal</item>
-        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
-        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
-        <item name="android:paddingTop">@dimen/spacing_normal</item>
-        <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">?textAppearanceBody2</item>
-    </style>
 
-    <style name="Widget.IOSched.Settings.Button.About">
-        <item name="android:textAppearance">@style/TextAppearance.IOSched.AboutButtons</item>
-    </style>
 
     <!-- Info -->
     <!--<style name="Widget.IOSched.EventCardView" parent="Widget.MaterialComponents.CardView">
@@ -703,13 +391,6 @@
         <item name="navigationBarBorderSize">1dp</item>
     </style>
 
-    <!-- Info -->
-    <style name="Widget.IOSched.EventCardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">0dp</item>
-        <item name="strokeColor">?colorControlLight</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="eventTypeLogoBackground">?eventCardHeaderBackground</item>
-    </style>
+
 
 </resources>

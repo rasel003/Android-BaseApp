@@ -18,6 +18,7 @@ import com.rasel.androidbaseapp.presentation.viewmodel.CharacterUIModel
 import com.rasel.androidbaseapp.util.LoadingUtils
 import com.rasel.androidbaseapp.util.doOnApplyWindowInsets
 import com.rasel.androidbaseapp.util.observe
+import com.rasel.androidbaseapp.util.showToast
 import com.rasel.androidbaseapp.util.smoothSnapToPosition
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -48,7 +49,8 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding, BaseVie
             )
         }
         if (characterAdapter.itemCount < 1) {
-            val isFavorite = (findNavController().currentDestination?.label == getString(R.string.menu_favorites))
+            val isFavorite =
+                (findNavController().currentDestination?.label == getString(R.string.menu_favorites))
             viewModel.getCharacters(isFavorite)
         }
         initRecyclerView()
@@ -60,9 +62,27 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding, BaseVie
         }*/
 
         binding.btnScrollTo.setOnClickListener {
-            val position = Random.nextInt(1, characterAdapter.itemCount-1)
+            val position = Random.nextInt(1, characterAdapter.itemCount - 1)
             binding.btnScrollTo.text = "Position $position"
             binding.recyclerViewCharacters.smoothSnapToPosition(position)
+
+            binding.toggleButton.check(binding.btnDarkMode.id)
+        }
+        binding.toggleButton.addOnButtonCheckedListener { toggleButton, checkedId, isChecked ->
+            if (!isChecked) return@addOnButtonCheckedListener  // Ignore uncheck events
+
+//            if (toggleButton.isPressed) {  // Ensure it's a user action
+                when (checkedId) {
+                    binding.btnLightMode.id -> {
+                        mContext.showToast("Light Selected")
+                        Timber.tag("rsl").i("Light Mode Selected")
+                    }
+                    binding.btnDarkMode.id -> {
+                        mContext.showToast("Dark Selected")
+                        Timber.tag("rsl").i("Dark Mode Selected")
+                    }
+                }
+//            }
         }
     }
 

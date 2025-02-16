@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <!--        <item name="android:textColor">?textColorDefault</item>-->
+        <!--        <item name="backgroundTint">?attr/colorPrimaryVariant</item>-->
+        <!--        <item name="textAllCaps">true</item>-->
+        <!-- <item name="android:stateListAnimator" tools:ignore="NewApi">
+             @animator/shr_next_button_state_list_anim
+         </item>-->
+    </style>
+
+    <style name="Widget.App.Button.Submit" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.PaperflyGo.Button.Submit</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:enabled">false</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="icon">@drawable/ic_forward_icon</item>
+        <item name="android:backgroundTint">@color/submit_button_background</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="Widget.App.Button.OutLineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/color_button_outline</item>
+        <item name="strokeColor">@color/color_button_outline</item>
+        <item name="strokeWidth">1dp</item>
+        <!--<item name="android:stateListAnimator" tools:ignore="NewApi">
+            @animator/shr_next_button_state_list_anim
+        </item>-->
+    </style>
+
+    <style name="Widget.App.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Account dialogs -->
+    <style name="Widget.IOSched.BorderlessButton.NormalText" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAppearance">?android:textAppearance</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="Widget.IOSched.AccountDialog.ActionButton" parent="">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/margin_normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
+        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.IOSched.AccountDialog.ManageAccountButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialComponents.Chip
+        </item>
+    </style>
+
+    <style name="Widget.IOSched.Settings.Button">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
+        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">?textAppearanceBody2</item>
+    </style>
+
+    <style name="Widget.IOSched.Settings.Button.About">
+        <item name="android:textAppearance">@style/TextAppearance.IOSched.AboutButtons</item>
+    </style>
+    <style name="Widget.IOSched.Speaker.SocialButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+</resources>
