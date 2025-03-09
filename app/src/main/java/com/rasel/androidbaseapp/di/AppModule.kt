@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.core.theme.ThemeUtils
 import com.rasel.androidbaseapp.core.theme.ThemeUtilsImp
+import com.rasel.androidbaseapp.presentation.utils.AndroidConnectivityObserver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -74,5 +75,10 @@ object AppModule {
     @Singleton
     fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
         return WorkManager.getInstance(context)
+    }
+    @Provides
+    @Singleton
+    fun provideConnectivityObserver(@ApplicationContext context: Context): AndroidConnectivityObserver {
+        return AndroidConnectivityObserver(context)
     }
 }

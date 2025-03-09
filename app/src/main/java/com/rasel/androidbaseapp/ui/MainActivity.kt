@@ -1,7 +1,6 @@
 package com.rasel.androidbaseapp.ui
 
 import android.content.Context
-import android.content.IntentFilter
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +14,13 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.databinding.ActivityMain2Binding
+import com.rasel.androidbaseapp.presentation.utils.NetworkStatus
+import com.rasel.androidbaseapp.presentation.viewmodel.ConnectivityViewModel
 import com.rasel.androidbaseapp.presentation.viewmodel.LocalizedViewModel
 import com.rasel.androidbaseapp.util.NetworkChangeReceiver
 import com.rasel.androidbaseapp.util.NoticeDialogFragment
 import com.rasel.androidbaseapp.util.contentView
+import com.rasel.androidbaseapp.util.showToast
 import com.rasel.androidbaseapp.util.toastSuccess
 import com.rasel.androidbaseapp.util.updateForTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity(), NoticeDialogFragment.NoticeDialogListe
     private lateinit var mContext: Context
     private val viewModel: LocalizedViewModel by viewModels()
     private val mainActivityViewModel: MainActivityViewModel by viewModels()
+    private val connectivityViewModel: ConnectivityViewModel by viewModels()
 
     private val binding: ActivityMain2Binding by contentView(R.layout.activity_main2)
 
@@ -94,6 +97,16 @@ class MainActivity : AppCompatActivity(), NoticeDialogFragment.NoticeDialogListe
         //network change callback to track network state
         networkChangeReceiver = NetworkChangeReceiver()
         networkChangeReceiver.setConnectionChangeCallback(this)
+
+        connectivityViewModel.networkStatus.observe(this) { networkStatus ->
+
+            if (networkStatus == NetworkStatus.Disconnected) {
+                showToast("you are offline")
+            }else if (networkStatus == NetworkStatus.Connected) {
+                showToast("you are Online")
+            }
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -103,10 +116,10 @@ class MainActivity : AppCompatActivity(), NoticeDialogFragment.NoticeDialogListe
 
     override fun onStart() {
         super.onStart()
-       /* mContext.registerReceiver(
-            networkChangeReceiver,
-            IntentFilter(NetworkChangeReceiver.ACTION_CONNECTIVITY_CHANGE)
-        )*/
+        /* mContext.registerReceiver(
+             networkChangeReceiver,
+             IntentFilter(NetworkChangeReceiver.ACTION_CONNECTIVITY_CHANGE)
+         )*/
 
         viewModel.getLocalizationFromRemote()
     }
