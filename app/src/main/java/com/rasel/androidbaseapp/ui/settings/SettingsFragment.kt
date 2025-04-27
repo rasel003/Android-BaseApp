@@ -1,5 +1,6 @@
 package com.rasel.androidbaseapp.ui.settings
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -35,6 +36,7 @@ import com.rasel.androidbaseapp.util.TimeUtils
 import com.rasel.androidbaseapp.util.TimeUtils.getStringDateFromTimeInMillis
 import com.rasel.androidbaseapp.util.observe
 import com.rasel.androidbaseapp.util.result.EventObserver
+import com.rasel.androidbaseapp.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import java.util.*
@@ -77,6 +79,7 @@ class SettingsFragment : DownloadFragment<FragmentSettingsBinding, BaseViewModel
         binding.toolbar.setOnMenuItemClickListener(this)
 
 //        registerDownloadReceiver()
+        manageDeepLink()
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(MY_KEY)?.observe(viewLifecycleOwner) {
             // get your result here
@@ -186,6 +189,92 @@ class SettingsFragment : DownloadFragment<FragmentSettingsBinding, BaseViewModel
         })
 
         dfdk()
+    }
+
+    private fun manageDeepLink() {
+        val data: Uri? = requireActivity().intent?.data
+
+        data?.let { uri ->
+            context?.toast(uri.toString())
+
+            val keyword = uri.getQueryParameter("keyword")
+            val checkInDate = uri.getQueryParameter("checkInDate")
+            val checkOutDate = uri.getQueryParameter("checkOutDate")
+            val numberOfRooms = uri.getQueryParameter("numberOfRooms")
+            val numberOfAdultTravelers = uri.getQueryParameter("numberOfAdultTravelers")
+            val numberOfAdultChildren = uri.getQueryParameter("numberOfAdultChildren")
+            val productType = uri.getQueryParameter("productType")
+            val countryCode = uri.getQueryParameter("countryCode")
+            val latitude = uri.getQueryParameter("latitude")
+            val longitude = uri.getQueryParameter("longitude")
+            val searchId = uri.getQueryParameter("searchId")
+            val searchType = uri.getQueryParameter("searchType")
+
+            val segments = uri.pathSegments
+            val userName = segments.getOrNull(0)   // "rasel"
+            val cityName = segments.getOrNull(1)    // "dhaka"
+            val propertySlug = segments.getOrNull(2) // "white-house-guest-house-712313"
+
+            Timber.tag("rsl").d( """
+            Original URL: $uri
+            keyword = $keyword
+            checkInDate = $checkInDate
+            checkOutDate = $checkOutDate
+            numberOfRooms = $numberOfRooms
+            numberOfAdultTravelers = $numberOfAdultTravelers
+            numberOfAdultChildren = $numberOfAdultChildren
+            productType = $productType
+            countryCode = $countryCode
+            latitude = $latitude
+            longitude = $longitude
+            searchId = $searchId
+            searchType = $searchType
+            userName (path) = $userName
+            cityName (path) = $cityName
+            propertySlug (path) = $propertySlug
+        """.trimIndent())
+        }
+    }
+
+    fun generateDeepLinkUrl(
+        domain: String,
+        city: String,
+        propertySlug: String,
+        keyword: String? = null,
+        checkInDate: String? = null,
+        checkOutDate: String? = null,
+        numberOfRooms: Int? = null,
+        numberOfAdultTravelers: Int? = null,
+        numberOfAdultChildren: Int? = null,
+        productType: Int? = null,
+        countryCode: String? = null,
+        latitude: Double? = null,
+        longitude: Double? = null,
+        searchId: Int? = null,
+        searchType: String? = null
+    ): String {
+        val baseUrl = "$domain/$city/$propertySlug"
+
+        val queryParams = mutableListOf<String>()
+
+        keyword?.let { queryParams.add("keyword=${Uri.encode(it)}") }
+        checkInDate?.let { queryParams.add("checkInDate=$it") }
+        checkOutDate?.let { queryParams.add("checkOutDate=$it") }
+        numberOfRooms?.let { queryParams.add("numberOfRooms=$it") }
+        numberOfAdultTravelers?.let { queryParams.add("numberOfAdultTravelers=$it") }
+        numberOfAdultChildren?.let { queryParams.add("numberOfAdultChildren=$it") }
+        productType?.let { queryParams.add("productType=$it") }
+        countryCode?.let { queryParams.add("countryCode=$it") }
+        latitude?.let { queryParams.add("latitude=$it") }
+        longitude?.let { queryParams.add("longitude=$it") }
+        searchId?.let { queryParams.add("searchId=$it") }
+        searchType?.let { queryParams.add("searchType=$it") }
+
+        return if (queryParams.isNotEmpty()) {
+            "$baseUrl?${queryParams.joinToString("&")}"
+        } else {
+            baseUrl
+        }
     }
 
     private fun dfdk(){

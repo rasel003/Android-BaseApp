@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.rasel.androidbaseapp.R
 import com.rasel.androidbaseapp.databinding.ActivityMain2Binding
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), NoticeDialogFragment.NoticeDialogListe
         updateForTheme(mainActivityViewModel.currentTheme)
 
         binding.apply {
-            val navController = Navigation.findNavController(this@MainActivity, R.id.nav_host)
+            val navController = this@MainActivity.findNavController(R.id.nav_host)
             bottomNav.setupWithNavController(navController)
 
             /* val appBarConfiguration = AppBarConfiguration(
